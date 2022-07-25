@@ -65,31 +65,56 @@ vector<int> gvec;
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++2
 // char str[MAX_COMMON_CHAR_ARA_LEN];
 int cia[MAX_COMMON_ARA_LEN];
-// int cia1[MAX_COMMON_ARA_LEN];
-// int cia2[MAX_COMMON_ARA_LEN];
+ll cia1[MAX_COMMON_ARA_LEN];
+ll cia2[MAX_COMMON_ARA_LEN];
 // ll cla[MAX_COMMON_ARA_LEN];
 //***************************************************************************************
 
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++3
 void solveCase(int t)
 {
+    int n = in(), m = in(), k = in();
+    ll nmtc = 0, mmtc = 0;
+    bool nmpo = false, mmpo = false;
+    bool nmgt4 = false, mmgt4 = false;
+    FN(i, k)
+    {
+        cia[i] = in();
+        cia1[i] = cia[i] / n;
+        cia2[i] = cia[i] / m;
+        if (cia1[i] >= 2)
+            nmtc += cia1[i];
+        if (cia2[i] >= 2)
+            mmtc += cia2[i];
+        if (cia1[i]>2 and cia1[i] % 2 == 1)
+            nmpo = true;
+        if (cia2[i]>2 and cia2[i] % 2 == 1)
+            mmpo = true;
+        if (cia1[i] >= 4)
+            nmgt4 = true;
+        if (cia2[i] >= 4)
+            mmgt4 = true;
+    }
+    bool ans = (nmtc >= m and (m % 2 == 0 || nmpo || (nmtc > m and nmgt4))) || (mmtc >= n and (n % 2 == 0 || mmpo || (mmtc > n and mmgt4)));
+
+    puts(ans ? "Yes" : "No");
 }
 //***************************************************************************************
 int main()
 {
-	int T = 1;
-	if (MULTIPLE_TEST_CASE)
-	{
-		scanf("%d", &T);
-	}
+    int T = 1;
+    if (MULTIPLE_TEST_CASE)
+    {
+        scanf("%d", &T);
+    }
 
-	FSE(t, 1, T)
-	{
-		clearGds();
-		solveCase(t);
-	}
+    FSE(t, 1, T)
+    {
+        clearGds();
+        solveCase(t);
+    }
 
-	return 0;
+    return 0;
 }
 
 //****************************************************************************************
@@ -101,40 +126,40 @@ int main()
 
 int in()
 {
-	int x;
-	scanf("%d", &x);
-	return x;
+    int x;
+    scanf("%d", &x);
+    return x;
 }
 
 void out(int a)
 {
-	printf("%d\n", a);
+    printf("%d\n", a);
 }
 
 ll inL()
 {
-	long long x;
-	scanf("%lld", &x);
-	return x;
+    long long x;
+    scanf("%lld", &x);
+    return x;
 }
 
 void outL(long long x)
 {
-	printf("%lld\n", x);
+    printf("%lld\n", x);
 }
 
 void outAra(int *ara, int s, int e)
 {
-	for (int i = s; i < e; ++i)
-	{
-		printf("%d ", ara[i]);
-	}
-	printf("\n");
+    for (int i = s; i < e; ++i)
+    {
+        printf("%d ", ara[i]);
+    }
+    printf("\n");
 }
 
 void clearGds()
 {
-	gst.clear();
-	gmp.clear();
-	gvec.clear();
+    gst.clear();
+    gmp.clear();
+    gvec.clear();
 }

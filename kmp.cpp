@@ -37,9 +37,7 @@ int getCount()
                 ans++;
                 pgrs = psa[pl - 1];
             }
-        }
-
-        else if (pat[pgrs] != str[i])
+        }        else if (pat[pgrs] != str[i])
         {
             while (pgrs > 0 and pat[pgrs] != str[i])
                 pgrs = psa[pgrs - 1];
@@ -51,7 +49,7 @@ int getCount()
 
 int main()
 {
-    // freopen("in.txt", "r", stdin);
+    freopen("in.txt", "r", stdin);
     // freopen("out.txt", "w+", stdout);
     int T;
     scanf("%d", &T);

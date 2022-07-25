@@ -73,23 +73,53 @@ int cia[MAX_COMMON_ARA_LEN];
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++3
 void solveCase(int t)
 {
+    int n = in();
+    bool b = true;
+    bool a = true;
+    int mna = MAX_INT;
+    int mnb = MAX_INT;
+    string ara[5] = {"Hi", "Hellow", "h"};
+    FN(i, n)
+    {
+        cia[i] = in();
+        if (i % 2 == 0)
+        {
+            mna = min(mna, cia[i]);
+            if (i != 0 and mna <= mnb)
+            {
+                a = false;
+            }
+        }
+        else
+        {
+            mnb = min(mnb, cia[i]);
+            if (mna <= mnb)
+                a = false;
+        }
+        if (i != 0 && cia[i] < cia[i - 1] && i % 2 == 1)
+        {
+            b = false;
+        }
+    }
+
+    puts(a or n % 2 == 1 or !b ? "Mike" : "Joe");
 }
 //***************************************************************************************
 int main()
 {
-	int T = 1;
-	if (MULTIPLE_TEST_CASE)
-	{
-		scanf("%d", &T);
-	}
+    int T = 1;
+    if (MULTIPLE_TEST_CASE)
+    {
+        scanf("%d", &T);
+    }
 
-	FSE(t, 1, T)
-	{
-		clearGds();
-		solveCase(t);
-	}
+    FSE(t, 1, T)
+    {
+        clearGds();
+        solveCase(t);
+    }
 
-	return 0;
+    return 0;
 }
 
 //****************************************************************************************
@@ -101,40 +131,40 @@ int main()
 
 int in()
 {
-	int x;
-	scanf("%d", &x);
-	return x;
+    int x;
+    scanf("%d", &x);
+    return x;
 }
 
 void out(int a)
 {
-	printf("%d\n", a);
+    printf("%d\n", a);
 }
 
 ll inL()
 {
-	long long x;
-	scanf("%lld", &x);
-	return x;
+    long long x;
+    scanf("%lld", &x);
+    return x;
 }
 
 void outL(long long x)
 {
-	printf("%lld\n", x);
+    printf("%lld\n", x);
 }
 
 void outAra(int *ara, int s, int e)
 {
-	for (int i = s; i < e; ++i)
-	{
-		printf("%d ", ara[i]);
-	}
-	printf("\n");
+    for (int i = s; i < e; ++i)
+    {
+        printf("%d ", ara[i]);
+    }
+    printf("\n");
 }
 
 void clearGds()
 {
-	gst.clear();
-	gmp.clear();
-	gvec.clear();
+    gst.clear();
+    gmp.clear();
+    gvec.clear();
 }
