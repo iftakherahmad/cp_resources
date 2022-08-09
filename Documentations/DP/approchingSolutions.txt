@@ -1,0 +1,24 @@
+Approching Solutions to dp problem is simply::
+ 1 :: Identify sub problems and solve them 
+ 2 :: Use subproblem Solutions to solve larger problem
+
+Five steps to tackle dp ::
+ 1 :: Try to find a way to visualize example :: Helps to see connection and underlying pattern
+ that may help to Identify subproblem :: Try visualize through a DAG if possible, often solution is some path to the DAG
+ 2:: Find an appropriate subproblem
+ 3:: Find relationships among subproblems
+ 4:: Generalize the relationships
+ 5:: Solve problem by solving subproblems in appropriate order
+
+ ::: ::: ::: often solution approach is find DAG and Preorder then find path across the Preorder ::: ::: ::
+
+ ::: No doubt that finding right subproblem  is the most challanging part
+
+ :: Common subproblems
+ 1D subarray,
+ 1D subarray after some sorting
+ 2D , 2 index
+ subarray from middle or edges
+
+ :: Do not always bother on number of element count or size for dp , pay some attention on value range.
+

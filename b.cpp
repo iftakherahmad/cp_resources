@@ -65,43 +65,43 @@ vector<int> gvec;
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++2
 // char str[MAX_COMMON_CHAR_ARA_LEN];
 int cia[MAX_COMMON_ARA_LEN];
-ll cia1[MAX_COMMON_ARA_LEN];
-ll cia2[MAX_COMMON_ARA_LEN];
+// int cia1[MAX_COMMON_ARA_LEN];
+// int cia2[MAX_COMMON_ARA_LEN];
 // ll cla[MAX_COMMON_ARA_LEN];
 //***************************************************************************************
 
+void solve(int n)
+{
+    if (n < 0)
+        return;
+    cout << n << endl;
+    int sq = sqrt(n);
+    if (sq * sq != n)
+    {
+        solve((sq + 1) * (sq + 1) - n);
+    }
+    int x = (sq + 1) * (sq + 1) - n + 1;
+    while (true)
+    {
+        printf("%d ", x);
+        if (x == n)
+            break;
+        x++;
+    }
+}
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++3
 void solveCase(int t)
 {
-    int n = in(), m = in(), k = in();
-    ll nmtc = 0, mmtc = 0;
-    bool nmpo = false, mmpo = false;
-    bool nmgt4 = false, mmgt4 = false;
-    FN(i, k)
-    {
-        cia[i] = in();
-        cia1[i] = cia[i] / n;
-        cia2[i] = cia[i] / m;
-        if (cia1[i] >= 2)
-            nmtc += cia1[i];
-        if (cia2[i] >= 2)
-            mmtc += cia2[i];
-        if (cia1[i]>2 and cia1[i] % 2 == 1)
-            nmpo = true;
-        if (cia2[i]>2 and cia2[i] % 2 == 1)
-            mmpo = true;
-        if (cia1[i] >= 4)
-            nmgt4 = true;
-        if (cia2[i] >= 4)
-            mmgt4 = true;
-    }
-    bool ans = (nmtc >= m and (m % 2 == 0 || nmpo || (nmtc > m and nmgt4))) || (mmtc >= n and (n % 2 == 0 || mmpo || (mmtc > n and mmgt4)));
-
-    puts(ans ? "Yes" : "No");
+    int n = in();
+    n--;
+    solve(n);
 }
 //***************************************************************************************
 int main()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
     int T = 1;
     if (MULTIPLE_TEST_CASE)
     {
