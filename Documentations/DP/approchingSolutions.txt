@@ -22,3 +22,5 @@ Five steps to tackle dp ::
 
  :: Do not always bother on number of element count or size for dp , pay some attention on value range.
 
+:: Do not always try to , some times try to solve in reverse order like choosing the last thing to do 
+in stead of first

@@ -1,0 +1,7 @@
+:::: What is constructive algorithms ?
+    :: given some conditions , -> have to construc some sort of answer that satisfies the 
+    conditions
+
+
+:::: Way to approach solution 
+    :: First simulate smaller cases often brute force simulation , and then try to observ patterns
